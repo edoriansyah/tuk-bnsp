@@ -1,0 +1,10 @@
+# prevent directory listings
+
+Options -Indexes
+IndexIgnore _/_
+
+# follow symbolic links
+
+Options FollowSymlinks
+RewriteEngine on
+RewriteRule ^(.+)?$ web/$1
