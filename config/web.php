@@ -4,7 +4,12 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'id' => 'basic',
+    'id' => 'tuk-bnsp',
+    'name' => 'TUK BNSP',
+    'homeUrl' => '/',
+    'language' => 'id-ID',
+    'timeZone' => 'Asia/Jakarta',
+    'sourceLanguage' => 'id-ID',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -13,6 +18,7 @@ $config = [
     ],
     'components' => [
         'request' => [
+            'baseUrl' => '',
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '8I6MZv00dzVQbg9OIZsrIGO_fWyP8smN',
         ],
