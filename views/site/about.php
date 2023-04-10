@@ -2,17 +2,33 @@
 
 /** @var yii\web\View $this */
 
-use yii\helpers\Html;
-
-$this->title = 'About';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = Yii::$app->name . ' - About';
 ?>
-<div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        This is the About page. You may modify the following file to customize its content:
-    </p>
-
-    <code><?= __FILE__ ?></code>
-</div>
+<!-- Header-->
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">About Us</h1>
+            <p class="lead fw-normal text-white-50 mb-0">The best place to shopping a book</p>
+        </div>
+    </div>
+</header>
+<!-- Section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 justify-content-center">
+            <div class="col-lg-8">
+                <h2>About this page</h2>
+                <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled
+                    so you can use it as a boilerplate or starting point for you own landing page designs! This template
+                    features:</p>
+                <ul>
+                    <li>Clickable nav links that smooth scroll to page sections</li>
+                    <li>Responsive behavior when clicking nav links perfect for a one page website</li>
+                    <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar
+                    </li>
+                    <li>Minimal custom CSS so you are free to explore your own unique design options</li>
+                </ul>
+            </div>
+        </div>
+</section>

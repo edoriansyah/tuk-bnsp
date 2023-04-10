@@ -12,6 +12,7 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
+    public $layout = 'shop-sb/main';
     /**
      * {@inheritdoc}
      */
@@ -124,5 +125,13 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    /**
+     * Dashboard page.
+     */
+    public function actionDashboard()
+    {
+        return $this->render('dashboard');
     }
 }
