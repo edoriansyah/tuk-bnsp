@@ -5,7 +5,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'tuk-bnsp',
-    'name' => 'TUK BNSP',
+    'name' => 'Book Store',
     'homeUrl' => '/',
     'language' => 'id-ID',
     'timeZone' => 'Asia/Jakarta',
@@ -15,6 +15,17 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
+    ],
+    'modules' => [
+        'admin' => [
+            'class' => 'mdm\admin\Module',
+            'mainLayout' => '@app/views/layouts/main.php',
+            'menus' => [
+                'assignment' => [
+                    'label' => 'Grant Access' // change label
+                ],
+            ],
+        ],
     ],
     'components' => [
         'request' => [
@@ -26,8 +37,8 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'identityClass' => 'mdm\admin\models\User',
+            'loginUrl' => ['user/login'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -54,6 +65,24 @@ $config = [
             'rules' => [
             ],
         ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
+    ],
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/index',
+            'site/about',
+            'site/contact',
+            'site/captcha',
+            'user/login',
+            'user/signup',
+            'user/request-password-reset',
+            'user/reset-password',
+            'gii/*',
+            'debug/*',
+        ]
     ],
     'params' => $params,
 ];
