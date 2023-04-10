@@ -6,7 +6,7 @@ use yii\web\AssetBundle;
 
 /**
  * Shop Homepage Start Bootstrap asset bundle
- * https://startbootstrap.com/template/shop-homepage
+ * https://startbootstrap.com/template/sb-admin
  * 
  * @author Edo Riansyah <edoriansyah@gmail.com>
  */
