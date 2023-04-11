@@ -63,6 +63,10 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'detail-buku/<id:\d+>' => 'site/detail-buku',
+                'home' => 'site/index',
+                'about-us' => 'site/about',
+                'contact-us' => 'site/contact',
             ],
         ],
         'authManager' => [
@@ -76,6 +80,7 @@ $config = [
             'site/about',
             'site/contact',
             'site/captcha',
+            'site/detail-buku',
             'user/login',
             'user/signup',
             'user/request-password-reset',

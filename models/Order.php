@@ -49,11 +49,16 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'pelanggan_id' => 'Pelanggan ID',
+            'pelanggan_id' => 'Pelanggan',
             'tanggal' => 'Tanggal',
             'total_harga' => 'Total Harga',
             'status_order' => 'Status Order',
         ];
+    }
+
+    public function formName()
+    {
+        return '';
     }
 
     /**
@@ -84,5 +89,17 @@ class Order extends \yii\db\ActiveRecord
     public function getPembayarans()
     {
         return $this->hasMany(Pembayaran::class, ['order_id' => 'id']);
+    }
+
+    /**
+     * Get list status order
+     */
+    public static function getStatusOrderList()
+    {
+        return [
+            'unpaid' => 'Unpaid',
+            'paid' => 'Paid',
+            'shipped' => 'Shipped',
+        ];
     }
 }

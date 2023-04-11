@@ -21,7 +21,8 @@
         "mdmsoft/yii2-admin": "~2.0",
         "kartik-v/yii2-widgets": "*",
         "kartik-v/yii2-icons": "@dev",
-        "rmrevin/yii2-fontawesome": "~3.5"
+        "rmrevin/yii2-fontawesome": "~3.5",
+        "dominus77/yii2-sweetalert2-widget": "^2.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

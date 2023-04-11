@@ -2,17 +2,16 @@
 
 namespace app\controllers;
 
-use Yii;
-use app\models\KategoriBuku;
-use app\models\KategoriBukuSearch;
+use app\models\Order;
+use app\models\OrderSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * KategoriBukuController implements the CRUD actions for KategoriBuku model.
+ * OrderController implements the CRUD actions for Order model.
  */
-class KategoriBukuController extends Controller
+class OrderController extends Controller
 {
     /**
      * @inheritDoc
@@ -33,13 +32,13 @@ class KategoriBukuController extends Controller
     }
 
     /**
-     * Lists all KategoriBuku models.
+     * Lists all Order models.
      *
      * @return string
      */
     public function actionIndex()
     {
-        $searchModel = new KategoriBukuSearch();
+        $searchModel = new OrderSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -49,7 +48,7 @@ class KategoriBukuController extends Controller
     }
 
     /**
-     * Displays a single KategoriBuku model.
+     * Displays a single Order model.
      * @param int $id ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
@@ -62,13 +61,13 @@ class KategoriBukuController extends Controller
     }
 
     /**
-     * Creates a new KategoriBuku model.
+     * Creates a new Order model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new KategoriBuku();
+        $model = new Order();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -84,7 +83,7 @@ class KategoriBukuController extends Controller
     }
 
     /**
-     * Updates an existing KategoriBuku model.
+     * Updates an existing Order model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return string|\yii\web\Response
@@ -104,7 +103,7 @@ class KategoriBukuController extends Controller
     }
 
     /**
-     * Deletes an existing KategoriBuku model.
+     * Deletes an existing Order model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return \yii\web\Response
@@ -118,15 +117,15 @@ class KategoriBukuController extends Controller
     }
 
     /**
-     * Finds the KategoriBuku model based on its primary key value.
+     * Finds the Order model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return KategoriBuku the loaded model
+     * @return Order the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = KategoriBuku::findOne(['id' => $id])) !== null) {
+        if (($model = Order::findOne(['id' => $id])) !== null) {
             return $model;
         }
 

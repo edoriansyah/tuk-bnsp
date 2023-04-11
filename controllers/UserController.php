@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\Pelanggan;
+use dominus77\sweetalert2\Alert;
 use mdm\admin\models\form\ChangePassword;
 use mdm\admin\models\form\Login;
 use mdm\admin\models\form\PasswordResetRequest;
@@ -41,13 +43,27 @@ class UserController extends Controller
      */
     public function actionLogin()
     {
+        $this->layout = 'main-auth';
         if (!Yii::$app->getUser()->isGuest) {
             return $this->goHome();
         }
 
         $model = new Login();
         if ($model->load(Yii::$app->getRequest()->post()) && $model->login()) {
-            return $this->goBack();
+            $role = key(Yii::$app->authManager->getAssignments(Yii::$app->user->id));
+            if ($role == 'ADMIN') {
+                Yii::$app->session->setFlash('success', [
+                    'title' => 'Login Berhasil',
+                    'text' => 'Selamat datang di halaman admin',
+                ]);
+                return $this->redirect(['site/dashboard']);
+            } else {
+                Yii::$app->session->setFlash('success', [
+                    'title' => 'Login Berhasil',
+                    'text' => 'Selamat datang di Book Store.',
+                ]);
+                return $this->goBack();
+            }
         } else {
             return $this->render('login', [
                 'model' => $model,
@@ -72,15 +88,38 @@ class UserController extends Controller
      */
     public function actionSignup()
     {
+        $this->layout = 'main-auth';
         $model = new Signup();
-        if ($model->load(Yii::$app->getRequest()->post())) {
-            if ($user = $model->signup()) {
-                return $this->goHome();
+        $pelanggan = new Pelanggan();
+        if ($model->load(Yii::$app->getRequest()->post()) && $pelanggan->load(Yii::$app->getRequest()->post())) {
+            $user = new User;
+            $user->username = $model->username;
+            $user->email = $model->email;
+            $user->status = 10;
+            $user->setPassword($model->password);
+            $user->generateAuthKey();
+
+            if ($user->save() && $pelanggan->validate()) {
+                $pelanggan->user_id = $user->id;
+                $pelanggan->save();
+                // assign role user
+                $auth = Yii::$app->authManager;
+                $role = $auth->getRole('PELANGGAN');
+                $auth->assign($role, $user->id);
+                Yii::$app->session->setFlash('success', [
+                    [
+                        'title' => 'Selamat!',
+                        'text' => 'Registrasi Anda berhasil.',
+                    ]
+                ]);
+                return $this->redirect(['login']);
+
             }
         }
 
         return $this->render('signup', [
             'model' => $model,
+            'pelanggan' => $pelanggan,
         ]);
     }
 

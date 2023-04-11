@@ -21,6 +21,7 @@ class ShopAsset extends AssetBundle
     public $js = [
         'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js',
         'js/scripts.js',
+        // 'js/yii_override.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

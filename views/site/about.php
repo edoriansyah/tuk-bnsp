@@ -18,17 +18,18 @@ $this->title = Yii::$app->name . ' - About';
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 justify-content-center">
             <div class="col-lg-8">
-                <h2>About this page</h2>
-                <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled
-                    so you can use it as a boilerplate or starting point for you own landing page designs! This template
-                    features:</p>
-                <ul>
-                    <li>Clickable nav links that smooth scroll to page sections</li>
-                    <li>Responsive behavior when clicking nav links perfect for a one page website</li>
-                    <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar
-                    </li>
-                    <li>Minimal custom CSS so you are free to explore your own unique design options</li>
-                </ul>
+                <h2>About Book Store</h2>
+                <p class="lead">Toko Buku XYZ berdiri pada tahun 1990, di sebuah kota kecil di Jawa Tengah. Awalnya,
+                    toko buku ini hanya menyediakan buku-buku pelajaran dan bacaan ringan. Namun, seiring dengan
+                    perkembangan zaman, toko buku ini juga mulai menyediakan buku-buku terbaru dan import. Kini, Toko
+                    Buku XYZ menjadi salah satu toko buku terbesar dan terlengkap di kota tersebut.</p>
+                <p class="lead">Pemilik Toko Buku XYZ, Bapak Ahmad, adalah seorang pencinta buku sejak kecil. Ia lulus
+                    dari salah satu universitas terkemuka di Indonesia, dan memiliki pengalaman bekerja di beberapa toko
+                    buku sebelum akhirnya memutuskan untuk membuka Toko Buku XYZ. Sebagai pemilik toko buku, Bapak Ahmad
+                    sangat peduli dengan kualitas layanan dan kepuasan pelanggan.</p>
+                <p class="lead">Toko Buku XYZ menyediakan berbagai macam buku-buku, mulai dari buku pelajaran, buku-buku
+                    referensi, buku-buku fiksi, hingga buku-buku impor. Toko buku ini juga memiliki layanan pemesanan
+                    buku online, sehingga pelanggan bisa lebih mudah membeli buku dari mana saja dan kapan saja.</p>
             </div>
         </div>
 </section>

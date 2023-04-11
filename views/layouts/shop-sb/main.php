@@ -4,6 +4,7 @@
 /** @var string $content */
 
 use app\assets\ShopAsset;
+use dominus77\sweetalert2\Alert;
 use yii\bootstrap5\Html;
 
 ShopAsset::register($this);
@@ -32,6 +33,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     <?= $this->render('_nav') ?>
 
     <!-- Page Content-->
+    <?= Alert::widget(['useSessionFlash' => true]) ?>
     <?= $content ?>
 
     <!-- Footer-->

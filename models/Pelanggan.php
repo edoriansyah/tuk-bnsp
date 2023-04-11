@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use mdm\admin\models\User;
 use Yii;
 
 /**
@@ -31,7 +32,7 @@ class Pelanggan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nama', 'user_id'], 'required'],
+            [['nama'], 'required'],
             [['alamat'], 'string'],
             [['user_id'], 'integer'],
             [['nama'], 'string', 'max' => 100],
@@ -46,7 +47,7 @@ class Pelanggan extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'nama' => 'Nama',
+            'nama' => 'Nama Lengkap',
             'alamat' => 'Alamat',
             'user_id' => 'User ID',
         ];

@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\Buku;
+use app\models\BukuSearch;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -62,41 +64,18 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
-    }
-
-    /**
-     * Login action.
-     *
-     * @return Response|string
-     */
-    public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+        $searchModel = new BukuSearch();
+        if (Yii::$app->request->get('keyword')) {
+            $listBuku = $searchModel->searchByKeyword(Yii::$app->request->queryParams);
+            $listBuku = $listBuku->getModels();
+        } else {
+            $listBuku = Buku::find()->limit(8)->all();
         }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-
-        $model->password = '';
-        return $this->render('login', [
-            'model' => $model,
+        return $this->render('index', [
+            'listBuku' => $listBuku,
+            'searchModel' => $searchModel,
         ]);
-    }
-
-    /**
-     * Logout action.
-     *
-     * @return Response
-     */
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
     }
 
     /**
@@ -132,6 +111,18 @@ class SiteController extends Controller
      */
     public function actionDashboard()
     {
+        $this->layout = 'main';
         return $this->render('dashboard');
+    }
+
+    /**
+     * Detail Buku
+     */
+    public function actionDetailBuku($id)
+    {
+        $buku = Buku::findOne($id);
+        return $this->render('detail-buku', [
+            'buku' => $buku
+        ]);
     }
 }

@@ -4,8 +4,6 @@
 /** @var string $content */
 
 use app\assets\SbAdminAsset;
-use dominus77\sweetalert2\Alert;
-use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 
 SbAdminAsset::register($this);
@@ -28,28 +26,20 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     <?php $this->head() ?>
 </head>
 
-<body>
+<body class="bg-primary">
     <?php $this->beginBody() ?>
-    <!-- Navigation-->
-    <?= $this->render('_nav') ?>
 
-    <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            <?= $this->render('_sidenav') ?>
-        </div>
-        <div id="layoutSidenav_content">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
             <main>
-                <div class="container-fluid px-4">
-                    <h1 class="mt-4">
-                        <?= $this->params['heading_page'] ?>
-                    </h1>
-                    <?php if (!empty($this->params['breadcrumbs'])): ?>
-                        <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
-                    <?php endif ?>
-                    <?= Alert::widget(['useSessionFlash' => true]) ?>
-                    <?= $content ?>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <?= $content ?>
+                    </div>
                 </div>
             </main>
+        </div>
+        <div id="layoutAuthentication_footer">
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
