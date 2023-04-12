@@ -71,6 +71,7 @@ class BukuController extends Controller
     public function actionCreate()
     {
         $model = new Buku();
+        $model->abstrak = '';
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -81,7 +82,10 @@ class BukuController extends Controller
                     $model->save();
                     $model->file_cover->saveAs('cover/' . $model->cover);
                 }
-                Yii::$app->session->setFlash('success', 'Data berhasil disimpan.');
+                Yii::$app->session->setFlash('success', [
+                    'title' => 'Saved!',
+                    'text' => 'Data berhasil disimpan.',
+                ]);
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
@@ -112,7 +116,10 @@ class BukuController extends Controller
                 $model->save();
                 $model->file_cover->saveAs('cover/' . $model->cover);
             }
-            Yii::$app->session->setFlash('success', 'Data berhasil diupdate.');
+            Yii::$app->session->setFlash('success', [
+                'title' => 'Updated!',
+                'text' => 'Data berhasil diupdate.',
+            ]);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

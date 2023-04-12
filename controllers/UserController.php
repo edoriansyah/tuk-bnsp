@@ -3,7 +3,6 @@
 namespace app\controllers;
 
 use app\models\Pelanggan;
-use dominus77\sweetalert2\Alert;
 use mdm\admin\models\form\ChangePassword;
 use mdm\admin\models\form\Login;
 use mdm\admin\models\form\PasswordResetRequest;
@@ -107,10 +106,8 @@ class UserController extends Controller
                 $role = $auth->getRole('PELANGGAN');
                 $auth->assign($role, $user->id);
                 Yii::$app->session->setFlash('success', [
-                    [
-                        'title' => 'Selamat!',
-                        'text' => 'Registrasi Anda berhasil.',
-                    ]
+                    'title' => 'Selamat!',
+                    'text' => 'Registrasi Anda berhasil.',
                 ]);
                 return $this->redirect(['login']);
 
