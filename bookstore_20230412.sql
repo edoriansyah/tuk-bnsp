@@ -41,7 +41,8 @@ LOCK TABLES `auth_assignment` WRITE;
 INSERT INTO `auth_assignment` VALUES
 ('ADMIN','1',1681121129),
 ('PELANGGAN','6',1681184782),
-('PELANGGAN','7',1681184991);
+('PELANGGAN','7',1681184991),
+('PELANGGAN','8',1681227192);
 /*!40000 ALTER TABLE `auth_assignment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,6 +171,7 @@ INSERT INTO `auth_item` VALUES
 ('/site/captcha',2,NULL,NULL,NULL,1681120499,1681120499),
 ('/site/contact',2,NULL,NULL,NULL,1681120499,1681120499),
 ('/site/dashboard',2,NULL,NULL,NULL,1681120499,1681120499),
+('/site/detail-buku',2,NULL,NULL,NULL,1681227449,1681227449),
 ('/site/error',2,NULL,NULL,NULL,1681098222,1681098222),
 ('/site/index',2,NULL,NULL,NULL,1681098222,1681098222),
 ('/user/*',2,NULL,NULL,NULL,1681120499,1681120499),
@@ -321,7 +323,7 @@ CREATE TABLE `buku` (
   PRIMARY KEY (`id`),
   KEY `buku_kategori_id_fkey` (`kategori_id`),
   CONSTRAINT `buku_kategori_id_fkey` FOREIGN KEY (`kategori_id`) REFERENCES `kategori_buku` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -335,7 +337,10 @@ INSERT INTO `buku` VALUES
 (5,'Ruang Sunyi','Cahaya Dewi','ABC',2020,150000,50,1,'eAjx_U17T2ZJs_PmzZCzdFahv3ltMYhY.jpg','Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?'),
 (6,'Menanti Restu Langit','Makhasin','XYZ',2019,78000,50,2,'T7AD_s7GKIrjiVILNkiNpyaLH8RjqDKo.jpg','Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?'),
 (8,'Teluk Alaska','Eka Aryani','Erlangga',2020,55000,90,2,'MlCcjLMTciztpjk7XEWX_J5tVEtCbQxH.jpg','Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?'),
-(9,'Harry Potter and the Sorcerer Stone','J.K. Rowling','Bloomsbury Publishing',1998,130000,30,1,'x0OZpFURR_V6KeViKNR0xHlTUgllOq1F.jpg','Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis dolorem exercitationem praesentium. Odio illo, dicta saepe sint expedita quis. Doloremque itaque placeat ipsum quis nam, amet iure at quaerat saepe! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis optio adipisci ad dicta minima sunt quisquam neque quis voluptate repellat, esse iure facere eaque vero quibusdam dolore! Provident, maiores architecto!');
+(9,'Harry Potter and the Sorcerer\'s Stone','J.K. Rowling','Bloomsbury Publishing',1998,130000,30,1,'x0OZpFURR_V6KeViKNR0xHlTUgllOq1F.jpg','Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis dolorem exercitationem praesentium. Odio illo, dicta saepe sint expedita quis. Doloremque itaque placeat ipsum quis nam, amet iure at quaerat saepe! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis optio adipisci ad dicta minima sunt quisquam neque quis voluptate repellat, esse iure facere eaque vero quibusdam dolore! Provident, maiores architecto!'),
+(11,'Unwanted Bond','Yeny Kristina','Sidu',2021,65000,130,2,'Bd_TmsTO52P2kEoulRkF_TtwM9bNhFAu.jpg','Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis dolorem exercitationem praesentium. Odio illo, dicta saepe sint expedita quis. Doloremque itaque placeat ipsum quis nam, amet iure at quaerat saepe! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis optio adipisci ad dicta minima sunt quisquam neque quis voluptate repellat, esse iure facere eaque vero quibusdam dolore! Provident, maiores architecto!'),
+(12,'Different','Kadek Pingetania','Grasindo',2022,129000,45,1,'pdIyNhe03HclGEu8Z8nzNoUUVnSlVmv1.jpg','Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis dolorem exercitationem praesentium. Odio illo, dicta saepe sint expedita quis. Doloremque itaque placeat ipsum quis nam, amet iure at quaerat saepe! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis optio adipisci ad dicta minima sunt quisquam neque quis voluptate repellat, esse iure facere eaque vero quibusdam dolore! Provident, maiores architecto!'),
+(13,'Cantik Itu Luka','Eka Kurniawan','Gramedia',2021,145000,120,2,'Ucm_puhizARz4Vyb8HzGNL1tTQm3KadZ.jpg','Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis dolorem exercitationem praesentium. Odio illo, dicta saepe sint expedita quis. Doloremque itaque placeat ipsum quis nam, amet iure at quaerat saepe! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis optio adipisci ad dicta minima sunt quisquam neque quis voluptate repellat, esse iure facere eaque vero quibusdam dolore! Provident, maiores architecto!');
 /*!40000 ALTER TABLE `buku` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -556,7 +561,7 @@ CREATE TABLE `pelanggan` (
   PRIMARY KEY (`id`),
   KEY `pelanggan_user_id_fkey` (`user_id`),
   CONSTRAINT `pelanggan_user_id_fkey` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -567,7 +572,8 @@ LOCK TABLES `pelanggan` WRITE;
 /*!40000 ALTER TABLE `pelanggan` DISABLE KEYS */;
 INSERT INTO `pelanggan` VALUES
 (3,'Edo Riansyah',NULL,6),
-(4,'Nasrul',NULL,7);
+(4,'Nasrul',NULL,7),
+(5,'Watik',NULL,8);
 /*!40000 ALTER TABLE `pelanggan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -617,7 +623,7 @@ CREATE TABLE `user` (
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -629,7 +635,8 @@ LOCK TABLES `user` WRITE;
 INSERT INTO `user` VALUES
 (1,'admin','QGaUPjyfjWb_nRWJKSXBeU5pWxR-mtT6','$2y$13$w6xwrGRof5xPtLOwjBcQyuDdrJnQ4OvWaBgPn5aNz9Zl6cuSACt1.',NULL,'admin@example.com',10,1681098397,1681098397),
 (6,'edoriansyah','e9n95jmDZJEgguLvoTgyWwCNkntjAeu3','$2y$13$3ao6KnOXGTd9PGNmZf8Jd.8ZynSJUfxZ0xfLGvbFJMAM29/4EU5Da',NULL,'edo@example.com',10,1681184782,1681184782),
-(7,'nasrul','1Ni2jI3z3MoL2sd3SXnd2HAwVR4u1DDC','$2y$13$y8iVzQXE/cz7JC8hozcZcu4vigbu8lGQVBGL0jrwTe5yq3KpwWOnC',NULL,'nasrul@example.com',10,1681184991,1681184991);
+(7,'nasrul','1Ni2jI3z3MoL2sd3SXnd2HAwVR4u1DDC','$2y$13$y8iVzQXE/cz7JC8hozcZcu4vigbu8lGQVBGL0jrwTe5yq3KpwWOnC',NULL,'nasrul@example.com',10,1681184991,1681184991),
+(8,'watik','_g3VpKZGYqEv6cxyNsJnXerSWwD6gi-D','$2y$13$KzTOfyFnPpgCqCqW2qKFhOFXPXLe8rI2kyVyyh.zzvUKSvl8k1eS6',NULL,'watik@example.com',10,1681227192,1681227192);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -642,4 +649,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-11  9:13:10
+-- Dump completed on 2023-04-12  2:27:11
