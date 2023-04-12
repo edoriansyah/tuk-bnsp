@@ -69,7 +69,7 @@ class SiteController extends Controller
             $listBuku = $searchModel->searchByKeyword(Yii::$app->request->queryParams);
             $listBuku = $listBuku->getModels();
         } else {
-            $listBuku = Buku::find()->limit(8)->all();
+            $listBuku = Buku::find()->limit(8)->orderBy('id DESC')->all();
         }
 
         return $this->render('index', [
