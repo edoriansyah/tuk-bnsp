@@ -21,6 +21,10 @@ $this->title = 'Detail Buku - ' . $buku->judul;
                     <?= $buku->judul ?>
                 </h1>
                 <div class="fs-5 mb-5">
+                    <span class="text-muted">
+                        Penulis:
+                        <?= $buku->penulis ?>
+                    </span><br>
                     <span>
                         <?= Yii::$app->formatter->asCurrency($buku->harga) ?>
                     </span>
