@@ -21,7 +21,7 @@ $this->title = Yii::$app->name . ' - Home';
         <div class="row mb-4">
             <div class="col-md-12">
                 <?php
-                $form = ActiveForm::begin(['action' => ['site/index'], 'method' => 'get']);
+                $form = ActiveForm::begin(['bsVersion' => '5', 'action' => ['site/index'], 'method' => 'get']);
                 echo $form->field($searchModel, 'keyword')->textInput(['placeholder' => 'Cari buku...', 'class' => 'form-control-lg', 'style' => 'width:100%;'])->label(false);
                 ActiveForm::end();
                 ?>
@@ -32,7 +32,7 @@ $this->title = Yii::$app->name . ' - Home';
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <?= Html::img(['cover/' . $buku->cover], ['class' => 'card-img-top h-50']) ?>
+                        <?= Html::img(['cover/' . $buku->cover], ['class' => 'card-img-top', 'style' => 'height: 300px;']) ?>
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
