@@ -38,7 +38,7 @@ use yii\helpers\Html;
         ],
     ]) ?>
 
-    <?= $form->field($model, 'file_cover')->widget(FileInput::classname(), [
+    <?= $form->field($model, 'file_cover')->widget(FileInput::class, [
         'pluginOptions' => [
             'browseClass' => 'btn btn-primary',
             'browseLabel' => '',
