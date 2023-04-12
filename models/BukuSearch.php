@@ -48,6 +48,7 @@ class BukuSearch extends Buku
     public function search($params)
     {
         $query = Buku::find();
+        $query->orderBy('id DESC');
 
         // add conditions that should always apply here
 
@@ -83,6 +84,7 @@ class BukuSearch extends Buku
     public function searchByKeyword($params)
     {
         $query = Buku::find();
+        $query->orderBy('id DESC');
 
         // add conditions that should always apply here
 

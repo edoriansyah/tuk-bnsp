@@ -9,6 +9,7 @@ use Yii;
  *
  * @property int $id
  * @property string $judul
+ * @property string $abstrak
  * @property string $penulis
  * @property string $penerbit
  * @property int $tahun_terbit
