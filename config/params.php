@@ -10,5 +10,7 @@ return [
     ],
     'icon-framework' => \kartik\icons\Icon::FAS,
     // Font Awesome Icon framework
-    'bsVersion' => '5.x', // this will set globally `bsVersion` to Bootstrap 5.x for all Krajee Extensions
+    'bsVersion' => '5.x',
+    // this will set globally `bsVersion` to Bootstrap 5.x for all Krajee Extensions
+    'bsDependencyEnabled' => false,
 ];
